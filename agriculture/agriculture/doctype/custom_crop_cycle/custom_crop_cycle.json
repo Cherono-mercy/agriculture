@@ -1,0 +1,96 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "creation": "2025-06-21 22:13:00.424581",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "crop_name",
+  "greenhouse",
+  "column_break_jhzw",
+  "production_unit_number",
+  "section_break_hpru",
+  "planting_date",
+  "zerobending_date",
+  "column_break_vcij",
+  "expected_production_date"
+ ],
+ "fields": [
+  {
+   "fieldname": "crop_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Crop Name",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "greenhouse",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Greenhouse",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_jhzw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "production_unit_number",
+   "fieldtype": "Int",
+   "label": "Production Unit Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_hpru",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "planting_date",
+   "fieldtype": "Date",
+   "label": "Planting Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "zerobending_date",
+   "fieldtype": "Date",
+   "label": "Zerobending Date"
+  },
+  {
+   "fieldname": "column_break_vcij",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "expected_production_date",
+   "fieldtype": "Date",
+   "label": "Expected Production Date"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-06-22 01:42:43.916803",
+ "modified_by": "Administrator",
+ "module": "Agriculture",
+ "name": "Custom Crop Cycle",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

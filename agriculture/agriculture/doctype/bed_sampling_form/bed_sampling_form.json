@@ -1,0 +1,108 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-06-25 11:55:23.217078",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "sampling_details_section",
+  "greenhouse",
+  "week_no",
+  "grower",
+  "column_break_ozud",
+  "bed_no",
+  "date",
+  "variety",
+  "sampling_table_section",
+  "growth_stages"
+ ],
+ "fields": [
+  {
+   "fieldname": "greenhouse",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Greenhouse",
+   "reqd": 1
+  },
+  {
+   "fieldname": "week_no",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Week No",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "grower",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Grower",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_ozud",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bed_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Bed No.",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "variety",
+   "fieldtype": "Data",
+   "label": "Variety",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sampling_details_section",
+   "fieldtype": "Section Break",
+   "label": "Sampling Details"
+  },
+  {
+   "fieldname": "sampling_table_section",
+   "fieldtype": "Section Break",
+   "label": "Sampling Table"
+  },
+  {
+   "fieldname": "growth_stages",
+   "fieldtype": "Table",
+   "options": "Sampling Table",
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-06-25 13:45:21.668463",
+ "modified_by": "Administrator",
+ "module": "Agriculture",
+ "name": "Bed Sampling Form",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

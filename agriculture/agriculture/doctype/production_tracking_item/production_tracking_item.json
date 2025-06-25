@@ -1,0 +1,70 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-06-24 19:35:54.699076",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "date",
+  "primary_task",
+  "completeness_",
+  "secondary_task",
+  "secondary_task_completeness_",
+  "reasons_for_markdown"
+ ],
+ "fields": [
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "primary_task",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Primary Task",
+   "reqd": 1
+  },
+  {
+   "fieldname": "completeness_",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Completeness (%)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "secondary_task",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Secondary Task",
+   "reqd": 1
+  },
+  {
+   "fieldname": "secondary_task_completeness_",
+   "fieldtype": "Int",
+   "label": "Secondary Task Completeness (%)"
+  },
+  {
+   "fieldname": "reasons_for_markdown",
+   "fieldtype": "Small Text",
+   "label": "Reasons For Markdown"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-06-25 10:16:34.411602",
+ "modified_by": "Administrator",
+ "module": "Agriculture",
+ "name": "Production Tracking Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

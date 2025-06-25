@@ -1,0 +1,87 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-06-24 19:33:38.803580",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "greenhouse",
+  "supervisor",
+  "column_break_gbkw",
+  "week_no",
+  "grower",
+  "production_tracking_section",
+  "production_tracking_item"
+ ],
+ "fields": [
+  {
+   "fieldname": "greenhouse",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Greenhouse ",
+   "reqd": 1
+  },
+  {
+   "fieldname": "supervisor",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Supervisor",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_gbkw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "week_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Week No.",
+   "reqd": 1
+  },
+  {
+   "fieldname": "production_tracking_section",
+   "fieldtype": "Section Break",
+   "label": "Production Tracking"
+  },
+  {
+   "fieldname": "production_tracking_item",
+   "fieldtype": "Table",
+   "label": "Production Tracking Item",
+   "options": "Production Tracking Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "grower",
+   "fieldtype": "Data",
+   "label": "Grower",
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-06-25 10:13:30.999908",
+ "modified_by": "Administrator",
+ "module": "Agriculture",
+ "name": "Production Tracking Form",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

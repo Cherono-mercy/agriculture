@@ -39,7 +39,7 @@
   {
    "fieldname": "production_unit_number",
    "fieldtype": "Int",
-   "label": "Production Unit Number",
+   "label": "Bed No.",
    "reqd": 1
   },
   {
@@ -70,7 +70,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-06-22 01:42:43.916803",
+ "modified": "2025-06-24 15:14:41.318574",
  "modified_by": "Administrator",
  "module": "Agriculture",
  "name": "Custom Crop Cycle",

@@ -1,0 +1,49 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2025-06-24 19:17:48.407665",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "date",
+  "primary_task",
+  "secondary_task_cultural_activity"
+ ],
+ "fields": [
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "primary_task",
+   "fieldtype": "Data",
+   "label": "Primary Task",
+   "reqd": 1
+  },
+  {
+   "fieldname": "secondary_task_cultural_activity",
+   "fieldtype": "Data",
+   "label": "Secondary Task (Cultural Activity)",
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-06-24 19:58:36.189167",
+ "modified_by": "Administrator",
+ "module": "Agriculture",
+ "name": "Production Plan Task",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

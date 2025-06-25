@@ -13,24 +13,17 @@
   "color",
   "tasks_section",
   "task_list",
-  "period",
   "section_break_okwl",
   "crop_spacing",
-  "crop_spacing_uom",
   "column_break_neqd",
-  "row_spacing",
-  "row_spacing_uom",
-  "section_break_etgo",
-  "type",
-  "column_break_auxa",
+  "crop_spacing_uom",
+  "column_break_vwiy",
   "category",
-  "section_break_dhrb",
-  "target_warehouse",
-  "section_break_bnnr",
-  "planting_uom",
+  "column_break_auxa",
+  "column_break_bigk",
   "planting_area",
-  "column_break_zojx",
-  "yield_uom"
+  "planting_uom",
+  "column_break_zojx"
  ],
  "fields": [
   {
@@ -71,11 +64,6 @@
    "reqd": 1
   },
   {
-   "fieldname": "period",
-   "fieldtype": "Int",
-   "label": "Period"
-  },
-  {
    "fieldname": "section_break_okwl",
    "fieldtype": "Section Break"
   },
@@ -95,47 +83,14 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "row_spacing",
-   "fieldtype": "Float",
-   "label": "Row Spacing"
-  },
-  {
-   "fieldname": "row_spacing_uom",
-   "fieldtype": "Link",
-   "label": "Row Spacing UOM",
-   "options": "UOM"
-  },
-  {
-   "fieldname": "section_break_etgo",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "type",
-   "fieldtype": "Select",
-   "label": "Type",
-   "options": "Annual\nPerennial\nBiennial"
-  },
-  {
    "fieldname": "column_break_auxa",
    "fieldtype": "Column Break"
   },
   {
    "fieldname": "category",
-   "fieldtype": "Data",
-   "label": "Category"
-  },
-  {
-   "fieldname": "section_break_dhrb",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "target_warehouse",
-   "fieldtype": "Data",
-   "label": "Target Warehouse"
-  },
-  {
-   "fieldname": "section_break_bnnr",
-   "fieldtype": "Section Break"
+   "fieldtype": "Link",
+   "label": "Item Group",
+   "options": "Item Group"
   },
   {
    "fieldname": "planting_uom",
@@ -149,12 +104,6 @@
    "label": "Planting Area"
   },
   {
-   "fieldname": "yield_uom",
-   "fieldtype": "Link",
-   "label": "Yield UOM",
-   "options": "UOM"
-  },
-  {
    "fieldname": "column_break_zojx",
    "fieldtype": "Column Break"
   },
@@ -163,12 +112,20 @@
    "fieldtype": "Data",
    "label": "Crop ID",
    "reqd": 1
+  },
+  {
+   "fieldname": "column_break_vwiy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_bigk",
+   "fieldtype": "Column Break"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-06-22 02:27:27.955981",
+ "modified": "2025-06-24 15:26:23.122414",
  "modified_by": "Administrator",
  "module": "Agriculture",
  "name": "Custom Crop",

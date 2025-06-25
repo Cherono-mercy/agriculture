@@ -38,8 +38,7 @@
    "fieldname": "holiday_management",
    "fieldtype": "Select",
    "label": "Holiday Management",
-   "options": "Ignore Holidays\nPrevious Business Day\nNext Business Day",
-   "reqd": 1
+   "options": "Ignore Holidays\nPrevious Business Day\nNext Business Day"
   },
   {
    "fieldname": "priority",
@@ -52,7 +51,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-06-21 23:49:33.999627",
+ "modified": "2025-06-24 12:16:06.390604",
  "modified_by": "Administrator",
  "module": "Agriculture",
  "name": "Agriculture Custom Task List",

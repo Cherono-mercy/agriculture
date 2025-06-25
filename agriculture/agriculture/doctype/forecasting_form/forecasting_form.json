@@ -1,0 +1,67 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-06-25 13:51:49.107323",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "greenhouse",
+  "column_break_ftfg",
+  "variety",
+  "section_break_emsb",
+  "forecast_details"
+ ],
+ "fields": [
+  {
+   "fieldname": "greenhouse",
+   "fieldtype": "Data",
+   "label": "Greenhouse"
+  },
+  {
+   "fieldname": "column_break_ftfg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "variety",
+   "fieldtype": "Data",
+   "label": "Variety"
+  },
+  {
+   "fieldname": "section_break_emsb",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "forecast_details",
+   "fieldtype": "Table",
+   "label": "Forecast Details",
+   "options": "Forecasting Item",
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-06-25 14:05:05.663675",
+ "modified_by": "Administrator",
+ "module": "Agriculture",
+ "name": "Forecasting Form",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

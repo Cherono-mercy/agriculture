@@ -10,18 +10,24 @@
   "column_break_yynp",
   "week_no",
   "tasks_section",
-  "production_plan_task"
+  "tasks"
  ],
  "fields": [
   {
    "fieldname": "greenhouse",
-   "fieldtype": "Data",
-   "label": "Greenhouse"
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Greenhouse",
+   "options": "Warehouse",
+   "reqd": 1
   },
   {
    "fieldname": "supervisor",
-   "fieldtype": "Data",
-   "label": "Supervisor"
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Supervisor",
+   "options": "Employee",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_yynp",
@@ -29,8 +35,10 @@
   },
   {
    "fieldname": "week_no",
-   "fieldtype": "Data",
-   "label": "Week No. "
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Week No. ",
+   "reqd": 1
   },
   {
    "fieldname": "tasks_section",
@@ -38,7 +46,7 @@
    "label": "Tasks"
   },
   {
-   "fieldname": "production_plan_task",
+   "fieldname": "tasks",
    "fieldtype": "Table",
    "label": "Production Task",
    "options": "Production Plan Task",
@@ -48,7 +56,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-06-24 19:50:57.300415",
+ "modified": "2025-06-26 15:19:20.460484",
  "modified_by": "Administrator",
  "module": "Agriculture",
  "name": "Production Plan Form",

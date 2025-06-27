@@ -1,11 +1,12 @@
 {
  "actions": [],
- "autoname": "autoincrement",
+ "autoname": "field:day",
  "creation": "2025-06-24 19:17:48.407665",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "day",
   "date",
   "primary_task",
   "secondary_task_cultural_activity"
@@ -29,17 +30,24 @@
    "fieldtype": "Data",
    "label": "Secondary Task (Cultural Activity)",
    "reqd": 1
+  },
+  {
+   "fieldname": "day",
+   "fieldtype": "Data",
+   "label": "Day",
+   "reqd": 1,
+   "unique": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-06-24 19:58:36.189167",
+ "modified": "2025-06-26 15:25:04.857363",
  "modified_by": "Administrator",
  "module": "Agriculture",
  "name": "Production Plan Task",
- "naming_rule": "Autoincrement",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [],
  "row_format": "Dynamic",

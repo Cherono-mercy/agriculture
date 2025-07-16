@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "naming_series:PPF-.YYYY.-.MM.-.#####",
  "creation": "2025-06-24 19:13:36.350735",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -8,9 +9,13 @@
   "greenhouse",
   "supervisor",
   "column_break_yynp",
+  "section_no",
+  "grower_name",
+  "column_break_jczu",
   "week_no",
+  "naming_series",
   "tasks_section",
-  "tasks"
+  "daily_tasks"
  ],
  "fields": [
   {
@@ -37,8 +42,7 @@
    "fieldname": "week_no",
    "fieldtype": "Int",
    "in_list_view": 1,
-   "label": "Week No. ",
-   "reqd": 1
+   "label": "Week No. "
   },
   {
    "fieldname": "tasks_section",
@@ -46,20 +50,42 @@
    "label": "Tasks"
   },
   {
-   "fieldname": "tasks",
+   "fieldname": "daily_tasks",
    "fieldtype": "Table",
    "label": "Production Task",
-   "options": "Production Plan Task",
-   "reqd": 1
+   "options": "Production Plan Task"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "PPF-.YYYY.-.MM.-.#####"
+  },
+  {
+   "fieldname": "section_no",
+   "fieldtype": "Int",
+   "label": "Section No."
+  },
+  {
+   "fieldname": "column_break_jczu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "grower_name",
+   "fieldtype": "Link",
+   "label": "Grower's name",
+   "options": "Employee"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-06-26 15:19:20.460484",
+ "modified": "2025-07-11 14:44:03.978210",
  "modified_by": "Administrator",
  "module": "Agriculture",
  "name": "Production Plan Form",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {

@@ -1,30 +1,27 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "naming_series:BSF-FC-.YYYY.-",
  "creation": "2025-06-25 13:51:49.107323",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "greenhouse",
-  "column_break_ftfg",
+  "naming_series",
+  "column_break_mwgq",
   "variety",
+  "column_break_hldq",
+  "sampling_date",
   "section_break_emsb",
-  "forecast_details"
+  "forecast_details",
+  "section_break_kehz",
+  "forecast_analysis"
  ],
  "fields": [
   {
    "fieldname": "greenhouse",
    "fieldtype": "Data",
    "label": "Greenhouse"
-  },
-  {
-   "fieldname": "column_break_ftfg",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "variety",
-   "fieldtype": "Data",
-   "label": "Variety"
   },
   {
    "fieldname": "section_break_emsb",
@@ -34,17 +31,53 @@
    "fieldname": "forecast_details",
    "fieldtype": "Table",
    "label": "Forecast Details",
-   "options": "Forecasting Item",
-   "reqd": 1
+   "options": "Forecasting Item"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "BSF-FC-.YYYY.-",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sampling_date",
+   "fieldtype": "Date",
+   "label": "Sampling Date"
+  },
+  {
+   "fieldname": "column_break_hldq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_kehz",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "forecast_analysis",
+   "fieldtype": "Table",
+   "label": "Forecast Analysis",
+   "options": "Production Forecast Analysis"
+  },
+  {
+   "fieldname": "variety",
+   "fieldtype": "Data",
+   "label": "Crop Variety"
+  },
+  {
+   "fieldname": "column_break_mwgq",
+   "fieldtype": "Column Break"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-06-25 14:05:05.663675",
+ "modified": "2025-07-16 07:57:03.117228",
  "modified_by": "Administrator",
  "module": "Agriculture",
  "name": "Forecasting Form",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {

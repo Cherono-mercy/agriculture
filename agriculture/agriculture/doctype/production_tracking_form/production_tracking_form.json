@@ -1,31 +1,37 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "naming_series:PTF-.YYYY.-.MM.-.####",
  "creation": "2025-06-24 19:33:38.803580",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "greenhouse",
   "supervisor",
+  "column_break_mhzw",
+  "section",
+  "grower_name",
   "column_break_gbkw",
   "week_no",
-  "grower",
+  "naming_series",
   "production_tracking_section",
   "production_tracking_item"
  ],
  "fields": [
   {
    "fieldname": "greenhouse",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Greenhouse ",
+   "options": "Warehouse",
    "reqd": 1
   },
   {
    "fieldname": "supervisor",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Supervisor",
+   "options": "Employee",
    "reqd": 1
   },
   {
@@ -34,10 +40,9 @@
   },
   {
    "fieldname": "week_no",
-   "fieldtype": "Data",
+   "fieldtype": "Int",
    "in_list_view": 1,
-   "label": "Week No.",
-   "reqd": 1
+   "label": "Week No."
   },
   {
    "fieldname": "production_tracking_section",
@@ -48,23 +53,39 @@
    "fieldname": "production_tracking_item",
    "fieldtype": "Table",
    "label": "Production Tracking Item",
-   "options": "Production Tracking Item",
-   "reqd": 1
+   "options": "Production Tracking Item"
   },
   {
-   "fieldname": "grower",
-   "fieldtype": "Data",
+   "fieldname": "column_break_mhzw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section",
+   "fieldtype": "Int",
+   "label": "Section No"
+  },
+  {
+   "fieldname": "grower_name",
+   "fieldtype": "Link",
    "label": "Grower",
-   "reqd": 1
+   "options": "Employee"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "PTF-.YYYY.-.MM.-.####\nPTF-.YYYY.-.####"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-06-25 10:13:30.999908",
+ "modified": "2025-07-14 17:33:42.463506",
  "modified_by": "Administrator",
  "module": "Agriculture",
  "name": "Production Tracking Form",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {

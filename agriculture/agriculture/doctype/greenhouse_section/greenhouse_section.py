@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class GreenhouseSections(Document):
+class GreenhouseSection(Document):
 	pass

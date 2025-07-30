@@ -7,15 +7,15 @@
  "engine": "InnoDB",
  "field_order": [
   "greenhouse",
-  "supervisor",
-  "column_break_yynp",
-  "section_no",
-  "grower_name",
-  "column_break_jczu",
   "week_no",
   "naming_series",
+  "column_break_eths",
+  "supervisor",
+  "production_plan_type",
+  "status",
   "tasks_section",
-  "daily_tasks"
+  "daily_tasks",
+  "amended_from"
  ],
  "fields": [
   {
@@ -35,10 +35,6 @@
    "reqd": 1
   },
   {
-   "fieldname": "column_break_yynp",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "week_no",
    "fieldtype": "Int",
    "in_list_view": 1,
@@ -50,12 +46,6 @@
    "label": "Tasks"
   },
   {
-   "fieldname": "daily_tasks",
-   "fieldtype": "Table",
-   "label": "Production Task",
-   "options": "Production Plan Task"
-  },
-  {
    "fieldname": "naming_series",
    "fieldtype": "Select",
    "hidden": 1,
@@ -63,25 +53,44 @@
    "options": "PPF-.YYYY.-.MM.-.#####"
   },
   {
-   "fieldname": "section_no",
-   "fieldtype": "Int",
-   "label": "Section No."
+   "fieldname": "production_plan_type",
+   "fieldtype": "Select",
+   "label": "Production Plan Type",
+   "options": "Fertigation\nCrop Protection\nProduction",
+   "reqd": 1
   },
   {
-   "fieldname": "column_break_jczu",
+   "fieldname": "column_break_eths",
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "grower_name",
+   "fieldname": "amended_from",
    "fieldtype": "Link",
-   "label": "Grower's name",
-   "options": "Employee"
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Production Plan Form",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nPending Approval\nApproved"
+  },
+  {
+   "fieldname": "daily_tasks",
+   "fieldtype": "Table",
+   "label": "Production Task",
+   "options": "Production Plan Task"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2025-07-11 14:44:03.978210",
+ "modified": "2025-07-30 05:14:11.579497",
  "modified_by": "Administrator",
  "module": "Agriculture",
  "name": "Production Plan Form",

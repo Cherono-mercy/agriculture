@@ -8,14 +8,17 @@
  "field_order": [
   "sampling_details_section",
   "greenhouse",
-  "sampling_area",
-  "total_variety_area",
-  "week_no",
-  "column_break_ozud",
-  "bed_no",
   "date",
+  "sample_bed_length",
+  "status",
+  "column_break_qetk",
+  "bed_no",
+  "week_no",
+  "total_variety_area",
+  "column_break_ozud",
   "variety",
   "naming_series",
+  "sampling_area",
   "sampling_table_section",
   "growth_stages",
   "amended_from"
@@ -85,11 +88,6 @@
    "options": "Bed-SAMPL-.YYYY.-"
   },
   {
-   "fieldname": "sampling_area",
-   "fieldtype": "Float",
-   "label": "Sampling Area"
-  },
-  {
    "fieldname": "total_variety_area",
    "fieldtype": "Float",
    "label": "Total Variety Area"
@@ -99,13 +97,34 @@
    "fieldtype": "Link",
    "label": "Crop Variety",
    "options": "Item"
+  },
+  {
+   "fieldname": "column_break_qetk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "4.0",
+   "fieldname": "sample_bed_length",
+   "fieldtype": "Float",
+   "label": "Sample Bed Length (m)"
+  },
+  {
+   "fieldname": "sampling_area",
+   "fieldtype": "Float",
+   "label": "Sampling Area"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nPending Approval\nApproved"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-07-16 05:58:40.555212",
+ "modified": "2025-07-28 15:44:11.490885",
  "modified_by": "Administrator",
  "module": "Agriculture",
  "name": "Bed Sampling Form",

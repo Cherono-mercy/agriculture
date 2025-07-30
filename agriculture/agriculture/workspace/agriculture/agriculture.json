@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"gPMCznqMYd\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Reports &amp; Masters</span>\",\"col\":12}},{\"id\":\"Krt1EKlniY\",\"type\":\"card\",\"data\":{\"card_name\":\"Crops & Lands\",\"col\":4}},{\"id\":\"tyo9T7tGMQ\",\"type\":\"card\",\"data\":{\"card_name\":\"Analytics\",\"col\":4}},{\"id\":\"a8v6a3QJ2T\",\"type\":\"card\",\"data\":{\"card_name\":\"Diseases & Fertilizers\",\"col\":4}},{\"id\":\"ghQj8YDIgb\",\"type\":\"card\",\"data\":{\"card_name\":\"Plans & Forms\",\"col\":4}}]",
+ "content": "[{\"id\":\"EjXBml3EEb\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Reports &amp; Masters</span>\",\"col\":12}},{\"id\":\"tpDzmT-nIc\",\"type\":\"card\",\"data\":{\"card_name\":\"Crops & Farms\",\"col\":4}},{\"id\":\"moiC_thD3h\",\"type\":\"card\",\"data\":{\"card_name\":\"Plans & Forms\",\"col\":4}}]",
  "creation": "2020-03-02 17:23:34.339274",
  "custom_blocks": [],
  "docstatus": 0,
@@ -16,6 +16,28 @@
    "dependencies": "",
    "hidden": 0,
    "is_query_report": 0,
+   "label": "Crop",
+   "link_count": 0,
+   "link_to": "Item",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Crop Cycle",
+   "link_count": 0,
+   "link_to": "Crop Cycle",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
    "label": "Location",
    "link_count": 0,
    "link_to": "Location",
@@ -24,10 +46,98 @@
    "type": "Link"
   },
   {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Plant Analysis",
+   "link_count": 0,
+   "link_to": "Plant Analysis",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Soil Analysis",
+   "link_count": 0,
+   "link_to": "Soil Analysis",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Water Analysis",
+   "link_count": 0,
+   "link_to": "Water Analysis",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Soil Texture",
+   "link_count": 0,
+   "link_to": "Soil Texture",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Weather",
+   "link_count": 0,
+   "link_to": "Weather",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Agriculture Analysis Criteria",
+   "link_count": 0,
+   "link_to": "Agriculture Analysis Criteria",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Disease",
+   "link_count": 0,
+   "link_to": "Disease",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Fertilizer",
+   "link_count": 0,
+   "link_to": "Fertilizer",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
    "hidden": 0,
    "is_query_report": 0,
    "label": "Plans & Forms",
-   "link_count": 0,
+   "link_count": 4,
    "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
@@ -35,7 +145,7 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Grower Weekly Work Plan",
+   "label": "Weekly Grower Production Plan",
    "link_count": 0,
    "link_to": "Production Plan Form",
    "link_type": "DocType",
@@ -75,111 +185,7 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Analytics",
-   "link_count": 0,
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
-   "dependencies": "",
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Plant Analysis",
-   "link_count": 0,
-   "link_to": "Plant Analysis",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "dependencies": "",
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Soil Analysis",
-   "link_count": 0,
-   "link_to": "Soil Analysis",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "dependencies": "",
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Water Analysis",
-   "link_count": 0,
-   "link_to": "Water Analysis",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "dependencies": "",
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Weather",
-   "link_count": 0,
-   "link_to": "Weather",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "dependencies": "",
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Agriculture Analysis Criteria",
-   "link_count": 0,
-   "link_to": "Agriculture Analysis Criteria",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "dependencies": "",
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Soil Texture",
-   "link_count": 0,
-   "link_to": "Soil Texture",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Diseases & Fertilizers",
-   "link_count": 0,
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
-   "dependencies": "",
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Disease",
-   "link_count": 0,
-   "link_to": "Disease",
-   "link_type": "DocType",
-   "onboard": 1,
-   "type": "Link"
-  },
-  {
-   "dependencies": "",
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Fertilizer",
-   "link_count": 0,
-   "link_to": "Fertilizer",
-   "link_type": "DocType",
-   "onboard": 1,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Crops & Lands",
+   "label": "Crops & Farms",
    "link_count": 5,
    "link_type": "DocType",
    "onboard": 0,
@@ -189,7 +195,28 @@
    "dependencies": "",
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Crops",
+   "label": "Location",
+   "link_count": 0,
+   "link_to": "Location",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Greenhouses",
+   "link_count": 0,
+   "link_to": "Warehouse",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Crop Varieties",
    "link_count": 0,
    "link_to": "Item",
    "link_type": "DocType",
@@ -208,7 +235,6 @@
    "type": "Link"
   },
   {
-   "dependencies": "Project = Agriculture Tasks",
    "hidden": 0,
    "is_query_report": 0,
    "label": "Agriculture Tasks",
@@ -217,30 +243,9 @@
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
-  },
-  {
-   "dependencies": "",
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Location",
-   "link_count": 0,
-   "link_to": "Location",
-   "link_type": "DocType",
-   "onboard": 1,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Agriculture Settings",
-   "link_count": 0,
-   "link_to": "Agriculture Settings",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
   }
  ],
- "modified": "2025-07-16 12:10:36.965962",
+ "modified": "2025-07-29 13:04:19.906736",
  "modified_by": "Administrator",
  "module": "Agriculture",
  "name": "Agriculture",
@@ -251,7 +256,7 @@
  "quick_lists": [],
  "restrict_to_domain": "Agriculture",
  "roles": [],
- "sequence_id": 11.0,
+ "sequence_id": 12.0,
  "shortcuts": [],
  "title": "Agriculture"
 }

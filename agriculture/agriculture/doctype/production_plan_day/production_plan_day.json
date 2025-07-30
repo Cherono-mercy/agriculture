@@ -1,0 +1,41 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-07-30 04:17:48.908829",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "day",
+  "day_tasks"
+ ],
+ "fields": [
+  {
+   "fieldname": "day",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Day",
+   "options": "Mon\nTue\nWed\nThu\nFri\nSat"
+  },
+  {
+   "fieldname": "day_tasks",
+   "fieldtype": "Table",
+   "label": "Day Tasks",
+   "options": "Production Plan Task"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-07-30 05:00:45.402918",
+ "modified_by": "Administrator",
+ "module": "Agriculture",
+ "name": "Production Plan Day",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

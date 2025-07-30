@@ -8,16 +8,13 @@
  "field_order": [
   "day",
   "assigned_tasks",
+  "target",
+  "actual",
+  "achievement",
+  "task_purpose",
   "supervisor_notes"
  ],
  "fields": [
-  {
-   "fieldname": "day",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "label": "Day",
-   "options": "Mon\nTue\nWed\nThu\nFri\nSat"
-  },
   {
    "fieldname": "assigned_tasks",
    "fieldtype": "Link",
@@ -29,14 +26,45 @@
    "fieldname": "supervisor_notes",
    "fieldtype": "Small Text",
    "in_list_view": 1,
-   "label": "Supervisor's Notes"
+   "label": "Supervisor's Remarks"
+  },
+  {
+   "fieldname": "target",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Target"
+  },
+  {
+   "fieldname": "actual",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Actual"
+  },
+  {
+   "fieldname": "achievement",
+   "fieldtype": "Percent",
+   "in_list_view": 1,
+   "label": "Achievement"
+  },
+  {
+   "fieldname": "task_purpose",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Task Purpose"
+  },
+  {
+   "fieldname": "day",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Day",
+   "options": "Mon\nTue\nWed\nThu\nFri\nSat"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-07-13 20:43:05.190856",
+ "modified": "2025-07-30 05:11:02.213248",
  "modified_by": "Administrator",
  "module": "Agriculture",
  "name": "Production Plan Task",

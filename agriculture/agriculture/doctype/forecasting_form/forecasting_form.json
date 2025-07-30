@@ -10,12 +10,15 @@
   "naming_series",
   "column_break_mwgq",
   "variety",
-  "column_break_hldq",
   "sampling_date",
+  "column_break_hldq",
+  "custom_week_no",
+  "status",
   "section_break_emsb",
   "forecast_details",
-  "section_break_kehz",
-  "forecast_analysis"
+  "section_break_jbfw",
+  "forecast_analysis",
+  "amended_from"
  ],
  "fields": [
   {
@@ -51,14 +54,10 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "section_break_kehz",
-   "fieldtype": "Section Break"
-  },
-  {
    "fieldname": "forecast_analysis",
    "fieldtype": "Table",
    "label": "Forecast Analysis",
-   "options": "Production Forecast Analysis"
+   "options": "Production Forecasting Analysis"
   },
   {
    "fieldname": "variety",
@@ -68,12 +67,38 @@
   {
    "fieldname": "column_break_mwgq",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_jbfw",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "custom_week_no",
+   "fieldtype": "Data",
+   "label": "Week No"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Forecasting Form",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nPending Approval\nApproved"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2025-07-16 07:57:03.117228",
+ "modified": "2025-07-28 15:45:15.454993",
  "modified_by": "Administrator",
  "module": "Agriculture",
  "name": "Forecasting Form",

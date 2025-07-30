@@ -1,46 +1,25 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2025-06-25 13:58:45.052273",
+ "creation": "2025-07-23 03:54:47.464573",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "week_no",
-  "expected_production",
-  "last_week_forecast",
-  "last_week_harvest",
   "current_forecast",
-  "variance",
-  "reasons_for_change"
+  "l42",
+  "l52",
+  "l62",
+  "l72",
+  "l82"
  ],
  "fields": [
   {
    "fieldname": "week_no",
-   "fieldtype": "Int",
+   "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Week No."
-  },
-  {
-   "fieldname": "expected_production",
-   "fieldtype": "Int",
-   "in_list_view": 1,
-   "label": "Sampling",
-   "read_only": 1
-  },
-  {
-   "fieldname": "last_week_harvest",
-   "fieldtype": "Int",
-   "in_list_view": 1,
-   "label": "Harvest",
-   "read_only": 1
-  },
-  {
-   "fieldname": "last_week_forecast",
-   "fieldtype": "Int",
-   "in_list_view": 1,
-   "label": "Forecast",
-   "read_only": 1
   },
   {
    "fieldname": "current_forecast",
@@ -49,26 +28,44 @@
    "label": "Current Forecast"
   },
   {
-   "fieldname": "reasons_for_change",
-   "fieldtype": "Small Text",
+   "fieldname": "l42",
+   "fieldtype": "Int",
    "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Reasons for change"
+   "label": "L42"
   },
   {
-   "fieldname": "variance",
-   "fieldtype": "Percent",
-   "label": "Variance"
+   "fieldname": "l52",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "L52"
+  },
+  {
+   "fieldname": "l62",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "L62"
+  },
+  {
+   "fieldname": "l72",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "L72"
+  },
+  {
+   "fieldname": "l82",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "L82"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-07-28 11:50:04.778579",
+ "modified": "2025-07-23 04:01:28.020919",
  "modified_by": "Administrator",
  "module": "Agriculture",
- "name": "Forecasting Item",
+ "name": "Production Forecasting Analysis",
  "owner": "Administrator",
  "permissions": [],
  "row_format": "Dynamic",

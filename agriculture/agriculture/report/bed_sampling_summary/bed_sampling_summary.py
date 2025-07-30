@@ -43,18 +43,20 @@ def execute(filters=None):
 
     return columns, data
 
+
 @frappe.whitelist()
 def generate_forecasting_form(greenhouse, variety, week_no):
     sampling_week = int(week_no)
 
-    days_to_harvest = {
-        "Fresh cut": 55,
-        "Rice stage": 28,
-        "Pea stage": 24,
-        "Bean stage": 21,
-        "Ball stage": 12,
-        "Colour Break": 7
+    # ✅ 1️⃣ Fetch dynamic growth stages config
+    agri_settings = frappe.get_doc("Agriculture Settings")
+    growth_stage_days = {
+        row.growth_stage: row.days_to_harvest for row in agri_settings.growth_stages
     }
+
+    # fallback in case no config
+    if not growth_stage_days:
+        frappe.throw("No growth stages configured in Agriculture Settings. Please add them first.")
 
     samplings = frappe.get_all(
         "Bed Sampling Form",
@@ -89,10 +91,12 @@ def generate_forecasting_form(greenhouse, variety, week_no):
 
     weekly_totals = {}
 
+    # ✅ 2️⃣ Use dynamic config
     for stage, numbers in growth_stage_totals.items():
         avg_count = sum(numbers) / len(numbers)
         scaled_count = avg_count * (avg_total_area / avg_sampling_area)
-        days = days_to_harvest.get(stage)
+
+        days = growth_stage_days.get(stage)
         if days:
             harvest_date = add_days(sampling_date, days)
             iso_week = harvest_date.isocalendar()[1]
@@ -112,7 +116,6 @@ def generate_forecasting_form(greenhouse, variety, week_no):
           AND se.docstatus = 1
     """, (variety, greenhouse, last_week))[0][0] or 0
 
-    # Get last week's forecast (week_no=1 of previous Forecasting Form)
     prev = frappe.get_all(
         "Forecasting Form",
         filters={"greenhouse": greenhouse, "variety": variety, "week_no": last_week},
@@ -132,7 +135,8 @@ def generate_forecasting_form(greenhouse, variety, week_no):
         "greenhouse": greenhouse,
         "variety": variety,
         "sampling_date": sampling_date,
-        "week_no": sampling_week
+        "week_no": sampling_week,
+        "custom_week_no": sampling_week 
     })
 
     for i in range(10):
@@ -142,12 +146,35 @@ def generate_forecasting_form(greenhouse, variety, week_no):
 
         forecast.append("forecast_details", {
             "week_no": iso_week,
-            #"iso_week": iso_week,
             "expected_production": expected,
             "last_week_harvest": last_week_harvest if offset == 1 else 0,
             "last_week_forecast": last_week_forecast if offset == 1 else 0,
-            "current_forecast": None  # leave blank
+            "current_forecast": None
         })
 
     forecast.insert(ignore_permissions=True)
     return forecast.name
+
+
+# ✅ NEW: Server-side helper method to calculate sampling_area and total_variety_area
+# @frappe.whitelist()
+# def get_sampling_defaults(greenhouse, variety, sample_bed_length=4):
+#     sample_bed_length = float(sample_bed_length or 4)
+
+#     crop = frappe.get_all(
+#         "Crop Cycle",
+#         filters={"greenhouse": greenhouse, "variety": variety},
+#         fields=["bed_width", "area"]
+#     )
+
+#     if not crop:
+#         frappe.throw("No Crop Cycle found for selected Greenhouse and Variety.")
+
+#     bed_width = crop[0].bed_width or 0
+#     total_area = crop[0].area or 0
+#     sampling_area = bed_width * sample_bed_length
+
+#     return {
+#         "sampling_area": sampling_area,
+#         "total_variety_area": total_area
+#     }

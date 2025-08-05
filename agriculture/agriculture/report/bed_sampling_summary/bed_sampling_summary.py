@@ -48,16 +48,16 @@ def execute(filters=None):
 def generate_forecasting_form(greenhouse, variety, week_no):
     sampling_week = int(week_no)
 
-    # ✅ 1️⃣ Fetch dynamic growth stages config
-    agri_settings = frappe.get_doc("Agriculture Settings")
+    # ✅ Get growth stage config for this variety from the Item doctype
+    item = frappe.get_doc("Item", variety)
     growth_stage_days = {
-        row.growth_stage: row.days_to_harvest for row in agri_settings.growth_stages
+        row.growth_stage: row.days_to_harvest for row in item.custom_variety_growth_stages
     }
 
-    # fallback in case no config
     if not growth_stage_days:
-        frappe.throw("No growth stages configured in Agriculture Settings. Please add them first.")
+        frappe.throw("No growth stages configured for this variety in the Item master.")
 
+    # ✅ Get all sampling forms for the week/greenhouse/variety
     samplings = frappe.get_all(
         "Bed Sampling Form",
         filters={
@@ -78,7 +78,7 @@ def generate_forecasting_form(greenhouse, variety, week_no):
     for s in samplings:
         doc = frappe.get_doc("Bed Sampling Form", s.name)
         for row in doc.growth_stages:
-            growth_stage_totals.setdefault(row.growth_stage, []).append(row.number)
+            growth_stage_totals.setdefault(row.growth_stage, []).append(row.number or 0)
 
         sampling_area_total += doc.sampling_area or 0
         total_variety_area_total += doc.total_variety_area or 0
@@ -91,21 +91,22 @@ def generate_forecasting_form(greenhouse, variety, week_no):
 
     weekly_totals = {}
 
-    # ✅ 2️⃣ Use dynamic config
+    # ✅ Calculate weekly totals per stage
     for stage, numbers in growth_stage_totals.items():
         avg_count = sum(numbers) / len(numbers)
         scaled_count = avg_count * (avg_total_area / avg_sampling_area)
 
         days = growth_stage_days.get(stage)
-        if days:
+        if days is not None:
             harvest_date = add_days(sampling_date, days)
             iso_week = harvest_date.isocalendar()[1]
+
             offset = (iso_week - sampling_week + 1) if iso_week >= sampling_week else (iso_week + 52 - sampling_week + 1)
             if 1 <= offset <= 10:
                 weekly_totals[offset] = weekly_totals.get(offset, 0) + scaled_count
 
+    # ✅ Get last week's harvest
     last_week = sampling_week - 1 if sampling_week > 1 else 52
-
     last_week_harvest = frappe.db.sql("""
         SELECT SUM(sed.qty)
         FROM `tabStock Entry` se
@@ -116,6 +117,7 @@ def generate_forecasting_form(greenhouse, variety, week_no):
           AND se.docstatus = 1
     """, (variety, greenhouse, last_week))[0][0] or 0
 
+    # ✅ Get previous week's forecast
     prev = frappe.get_all(
         "Forecasting Form",
         filters={"greenhouse": greenhouse, "variety": variety, "week_no": last_week},
@@ -130,13 +132,14 @@ def generate_forecasting_form(greenhouse, variety, week_no):
                 last_week_forecast = r.current_forecast or 0
                 break
 
+    # ✅ Create Forecasting Form
     forecast = frappe.get_doc({
         "doctype": "Forecasting Form",
         "greenhouse": greenhouse,
         "variety": variety,
         "sampling_date": sampling_date,
         "week_no": sampling_week,
-        "custom_week_no": sampling_week 
+        "custom_week_no": sampling_week
     })
 
     for i in range(10):
@@ -154,27 +157,3 @@ def generate_forecasting_form(greenhouse, variety, week_no):
 
     forecast.insert(ignore_permissions=True)
     return forecast.name
-
-
-# ✅ NEW: Server-side helper method to calculate sampling_area and total_variety_area
-# @frappe.whitelist()
-# def get_sampling_defaults(greenhouse, variety, sample_bed_length=4):
-#     sample_bed_length = float(sample_bed_length or 4)
-
-#     crop = frappe.get_all(
-#         "Crop Cycle",
-#         filters={"greenhouse": greenhouse, "variety": variety},
-#         fields=["bed_width", "area"]
-#     )
-
-#     if not crop:
-#         frappe.throw("No Crop Cycle found for selected Greenhouse and Variety.")
-
-#     bed_width = crop[0].bed_width or 0
-#     total_area = crop[0].area or 0
-#     sampling_area = bed_width * sample_bed_length
-
-#     return {
-#         "sampling_area": sampling_area,
-#         "total_variety_area": total_area
-#     }

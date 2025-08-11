@@ -90,6 +90,7 @@
   {
    "fieldname": "status",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "Status",
    "options": "Draft\nPending Approval\nApproved"
   }
@@ -98,7 +99,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-07-28 15:45:15.454993",
+ "modified": "2025-08-07 08:22:50.666721",
  "modified_by": "Administrator",
  "module": "Agriculture",
  "name": "Forecasting Form",

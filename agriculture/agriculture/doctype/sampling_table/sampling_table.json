@@ -7,7 +7,7 @@
  "engine": "InnoDB",
  "field_order": [
   "growth_stage",
-  "number"
+  "count"
  ],
  "fields": [
   {
@@ -18,7 +18,7 @@
    "reqd": 1
   },
   {
-   "fieldname": "number",
+   "fieldname": "count",
    "fieldtype": "Int",
    "in_list_view": 1,
    "label": "Count",
@@ -30,8 +30,8 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-07-31 23:38:32.098251",
- "modified_by": "Administrator",
+ "modified": "2025-08-06 16:20:33.341533",
+ "modified_by": "mercy@upande.com",
  "module": "Agriculture",
  "name": "Sampling Table",
  "owner": "Administrator",

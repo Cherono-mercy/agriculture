@@ -157,7 +157,7 @@
    "is_query_report": 0,
    "label": "Weekly Production Tracking Form",
    "link_count": 0,
-   "link_to": "Production Tracking Form",
+   "link_to": "Production Plan Form",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
@@ -186,7 +186,7 @@
    "hidden": 0,
    "is_query_report": 0,
    "label": "Crops & Farms",
-   "link_count": 5,
+   "link_count": 6,
    "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
@@ -243,9 +243,19 @@
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Variety Growth Stages",
+   "link_count": 0,
+   "link_to": "Variety Growth Stages",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
   }
  ],
- "modified": "2025-07-29 13:04:19.906736",
+ "modified": "2025-08-07 10:16:26.825793",
  "modified_by": "Administrator",
  "module": "Agriculture",
  "name": "Agriculture",

@@ -1,0 +1,78 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "field:stage_name",
+ "creation": "2025-07-23 05:45:31.708546",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "variety_type",
+  "growth_stage_group",
+  "naming_series",
+  "stage_name",
+  "growth_stage_configuration"
+ ],
+ "fields": [
+  {
+   "fieldname": "variety_type",
+   "fieldtype": "Select",
+   "label": "Variety Type",
+   "options": "Standard Roses\nSpray Roses\nSummer Flowers"
+  },
+  {
+   "fieldname": "growth_stage_group",
+   "fieldtype": "Data",
+   "label": "Growth Stage Group"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "VG-.#####",
+   "read_only": 1
+  },
+  {
+   "fieldname": "stage_name",
+   "fieldtype": "Data",
+   "label": "Stage Name",
+   "unique": 1
+  },
+  {
+   "fieldname": "growth_stage_configuration",
+   "fieldtype": "Table",
+   "label": "Growth Stage Configuration",
+   "options": "Growth Stage Configuration"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-08-06 21:03:16.929718",
+ "modified_by": "Administrator",
+ "module": "Agriculture",
+ "name": "Variety Growth Stages",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "stage_name"
+}

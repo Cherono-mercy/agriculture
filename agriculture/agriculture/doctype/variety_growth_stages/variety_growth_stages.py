@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class GrowthStagesConfiguration(Document):
+class VarietyGrowthStages(Document):
 	pass

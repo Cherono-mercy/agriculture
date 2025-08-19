@@ -6,32 +6,48 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "growth_stage",
-  "count"
+  "bed_no",
+  "rice_stage",
+  "ball_stage",
+  "colour_break_stage",
+  "full_colour_break_stage"
  ],
  "fields": [
   {
-   "fieldname": "growth_stage",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Growth Stage",
-   "reqd": 1
-  },
-  {
-   "fieldname": "count",
+   "fieldname": "bed_no",
    "fieldtype": "Int",
    "in_list_view": 1,
-   "label": "Count",
-   "non_negative": 1,
-   "reqd": 1
+   "label": "Bed No."
+  },
+  {
+   "fieldname": "rice_stage",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Rice stage",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "ball_stage",
+   "fieldtype": "Int",
+   "label": "Ball stage"
+  },
+  {
+   "fieldname": "colour_break_stage",
+   "fieldtype": "Int",
+   "label": "Colour Break stage"
+  },
+  {
+   "fieldname": "full_colour_break_stage",
+   "fieldtype": "Int",
+   "label": "Full Colour Break stage"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-08-06 16:20:33.341533",
- "modified_by": "mercy@upande.com",
+ "modified": "2025-08-18 20:08:43.106477",
+ "modified_by": "Administrator",
  "module": "Agriculture",
  "name": "Sampling Table",
  "owner": "Administrator",

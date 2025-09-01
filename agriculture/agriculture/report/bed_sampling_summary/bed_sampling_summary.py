@@ -1,4 +1,3 @@
-
 import frappe
 from frappe.utils import getdate, add_days
 
@@ -56,7 +55,13 @@ def generate_forecasting_form(greenhouse, variety, week_no):
         "variety": variety
     }, "bed_width") or 1
 
-    growth_stage_totals = {}
+    # --- UPDATED AGGREGATION LOGIC ---
+    growth_stage_totals = {
+        "Rice stage": [],
+        "Ball stage": [],
+        "Colour Break stage": [],
+        "Full Colour Break stage": []
+    }
     sampling_area_total = 0
     total_variety_area_total = 0
 
@@ -64,8 +69,11 @@ def generate_forecasting_form(greenhouse, variety, week_no):
         doc = frappe.get_doc("Bed Sampling Form", s.name)
 
         for row in doc.growth_stages:
-            if row.growth_stage != "Cut stage":
-                growth_stage_totals.setdefault(row.growth_stage, []).append(row.count or 0)
+            # ✅ Collect all samples from child table
+            growth_stage_totals["Rice stage"].append(row.rice_stage or 0)
+            growth_stage_totals["Ball stage"].append(row.ball_stage or 0)
+            growth_stage_totals["Colour Break stage"].append(row.colour_break_stage or 0)
+            growth_stage_totals["Full Colour Break stage"].append(row.full_colour_break_stage or 0)
 
         # ✅ Use calculated sampling area: sample_bed_length * bed_width
         calculated_sampling_area = (doc.sample_bed_length or 0) * bed_width
@@ -79,9 +87,12 @@ def generate_forecasting_form(greenhouse, variety, week_no):
     sampling_date = getdate(samplings[0].date)
     weekly_totals = {}
 
-        # ✅ Calculate forecast per growth stage (including Cut stage)
+    # ✅ Calculate forecast per growth stage
     for stage, numbers in growth_stage_totals.items():
-        avg_count = sum(numbers) / len(numbers)
+        if not numbers:
+            continue
+
+        avg_count = sum(numbers) / len(numbers)  # average across all samples
         scaled_count = avg_count * (avg_total_area / avg_sampling_area)
 
         days = growth_stage_days.get(stage)
@@ -93,7 +104,6 @@ def generate_forecasting_form(greenhouse, variety, week_no):
             if 1 <= offset <= 10:
                 weekly_totals[offset] = weekly_totals.get(offset, 0) + scaled_count
 
-    
     # ✅ Get actual harvested qty from Stock Entries for current sampling week (Cut stage)
     current_week_harvest = frappe.db.sql("""
         SELECT SUM(sed.qty)
@@ -104,9 +114,6 @@ def generate_forecasting_form(greenhouse, variety, week_no):
           AND WEEK(se.posting_date, 1) = %s
           AND se.docstatus = 1
     """, (variety, greenhouse, sampling_week))[0][0] or 0 
-    # ✅ Add Cut stage using Stock Entry total as its count
-    # Already fetched earlier using the existing SQL:
-    # current_week_harvest = <...>
 
     cut_stage_days = growth_stage_days.get("Cut stage")
     if cut_stage_days is not None and current_week_harvest:
@@ -116,10 +123,6 @@ def generate_forecasting_form(greenhouse, variety, week_no):
         offset = (iso_week - sampling_week + 1) if iso_week >= sampling_week else (iso_week + 52 - sampling_week + 1)
         if 1 <= offset <= 10:
             weekly_totals[offset] = weekly_totals.get(offset, 0) + current_week_harvest
-
-
-    # ✅ Add Cut stage harvest to week 1 of forecast
-    # weekly_totals[1] = weekly_totals.get(1, 0) + current_week_harvest
 
     # ✅ Get last week's harvest
     last_week = sampling_week - 1 if sampling_week > 1 else 52
@@ -155,7 +158,8 @@ def generate_forecasting_form(greenhouse, variety, week_no):
         "variety": variety,
         "sampling_date": sampling_date,
         "week_no": sampling_week,
-        "custom_week_no": sampling_week
+        "custom_week_no": sampling_week,
+        "custom_farm": samplings[0].get("custom_farm") if hasattr(samplings[0], "custom_farm") else None
     })
 
     for i in range(10):
@@ -200,11 +204,9 @@ def generate_forecasting_form(greenhouse, variety, week_no):
             "current_forecast": None
         })
 
-
     forecast.insert(ignore_permissions=True)
     return forecast.name
 
-# ✅ Script Report Entry Point
 def execute(filters=None):
     filters = filters or {}
     conditions = []
@@ -220,6 +222,7 @@ def execute(filters=None):
     if condition_sql:
         condition_sql = " AND " + condition_sql
 
+    # ✅ Fetch rows
     data = frappe.db.sql(f"""
         SELECT
             bs.name AS "ID",
@@ -228,22 +231,66 @@ def execute(filters=None):
             bs.week_no AS "Week No.",
             bs.sample_bed_length * cc.bed_width AS "Sampling Area",
             bs.total_variety_area AS "Total Variety Area",
-            bs.date AS "Sampling Date"
+            bs.date AS "Sampling Date",
+            bs.custom_farm AS "Farm",
+            bsg.bed_no AS "Bed No",
+            bsg.rice_stage AS "Rice Stage",
+            bsg.ball_stage AS "Ball Stage",
+            bsg.colour_break_stage AS "Colour Break Stage",
+            bsg.full_colour_break_stage AS "Full Colour Break Stage"
         FROM `tabBed Sampling Form` bs
         LEFT JOIN `tabCrop Cycle` cc
             ON cc.greenhouse = bs.greenhouse AND cc.variety = bs.variety
+        LEFT JOIN `tabSampling Table` bsg
+            ON bsg.parent = bs.name
         WHERE bs.docstatus = 1 {condition_sql}
-        ORDER BY bs.date DESC
+        ORDER BY bs.date DESC, bsg.bed_no ASC
     """, filters, as_dict=1)
 
     columns = [
         {"label": "ID", "fieldname": "ID", "fieldtype": "Link", "options": "Bed Sampling Form", "width": 120},
+        {"label": "Farm", "fieldname": "Farm", "fieldtype": "Link", "options": "Farm", "width": 120},
         {"label": "Greenhouse", "fieldname": "Greenhouse", "fieldtype": "Link", "options": "Warehouse", "width": 120},
         {"label": "Variety", "fieldname": "Variety", "fieldtype": "Link", "options": "Item", "width": 120},
         {"label": "Week No.", "fieldname": "Week No.", "fieldtype": "Int", "width": 80},
         {"label": "Sampling Area", "fieldname": "Sampling Area", "fieldtype": "Float", "width": 100},
         {"label": "Total Variety Area", "fieldname": "Total Variety Area", "fieldtype": "Float", "width": 120},
         {"label": "Sampling Date", "fieldname": "Sampling Date", "fieldtype": "Date", "width": 100},
+        {"label": "Bed No", "fieldname": "Bed No", "fieldtype": "Data", "width": 80},
+        {"label": "Rice Stage", "fieldname": "Rice Stage", "fieldtype": "Int", "width": 100},
+        {"label": "Ball Stage", "fieldname": "Ball Stage", "fieldtype": "Int", "width": 100},
+        {"label": "Colour Break Stage", "fieldname": "Colour Break Stage", "fieldtype": "Int", "width": 120},
+        {"label": "Full Colour Break Stage", "fieldname": "Full Colour Break Stage", "fieldtype": "Int", "width": 150},
     ]
 
+    # ✅ Add totals/averages row if there’s data
+    if data:
+        total_sampling_area = sum(d.get("Sampling Area") or 0 for d in data)
+        total_variety_area = sum(d.get("Total Variety Area") or 0 for d in data)
+
+        # Average across samples for each stage
+        avg_rice_stage = round(sum(d.get("Rice Stage") or 0 for d in data) / len(data), 2)
+        avg_ball_stage = round(sum(d.get("Ball Stage") or 0 for d in data) / len(data), 2)
+        avg_colour_break_stage = round(sum(d.get("Colour Break Stage") or 0 for d in data) / len(data), 2)
+        avg_full_colour_break_stage = round(sum(d.get("Full Colour Break Stage") or 0 for d in data) / len(data), 2)
+
+        summary_row = {
+            "ID": "➤ SUMMARY",
+            "Farm": "",
+            "Greenhouse": "",
+            "Variety": "",
+            "Week No.": "",
+            "Sampling Area": total_sampling_area,
+            "Total Variety Area": total_variety_area,
+            "Sampling Date": "",
+            "Bed No": "",
+            "Rice Stage": avg_rice_stage,
+            "Ball Stage": avg_ball_stage,
+            "Colour Break Stage": avg_colour_break_stage,
+            "Full Colour Break Stage": avg_full_colour_break_stage,
+        }
+
+        data.append(summary_row)
+
     return columns, data
+

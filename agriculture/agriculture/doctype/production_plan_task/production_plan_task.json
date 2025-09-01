@@ -7,22 +7,16 @@
  "engine": "InnoDB",
  "field_order": [
   "day",
-  "assigned_tasks",
+  "assigned_task",
   "variety",
   "task_purpose",
   "target",
   "actual",
   "achievement",
-  "supervisor_notes"
+  "supervisor_notes",
+  "is_prepopulated"
  ],
  "fields": [
-  {
-   "fieldname": "assigned_tasks",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Assigned Tasks",
-   "options": "Task"
-  },
   {
    "fieldname": "supervisor_notes",
    "fieldtype": "Small Text",
@@ -66,13 +60,27 @@
    "in_list_view": 1,
    "label": "Variety",
    "options": "Item"
+  },
+  {
+   "fieldname": "assigned_task",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Assigned Task",
+   "options": "Task"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_prepopulated",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Is prepopulated"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-08-19 08:47:16.867723",
+ "modified": "2025-08-29 12:54:14.199670",
  "modified_by": "Administrator",
  "module": "Agriculture",
  "name": "Production Plan Task",

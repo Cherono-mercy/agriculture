@@ -5,23 +5,23 @@ from frappe.utils import getdate, add_days
 def generate_forecasting_form(greenhouse, variety, week_no):
     sampling_week = int(week_no)
 
-    # ✅ Fetch item to get variety_type (item_group) and growth_stage_group
+    # ✅ Fetch item to get variety_type (item_group) and custom_growth_stage_group
     item = frappe.get_doc("Item", variety)
     variety_type = item.item_group
-    growth_stage_group = item.growth_stage_group
+    custom_growth_stage_group = item.custom_growth_stage_group
 
     # ✅ Get growth stage configuration from Variety Growth Stages
     config = frappe.get_all(
         "Variety Growth Stages",
         filters={
             "variety_type": variety_type,
-            "growth_stage_group": growth_stage_group
+            "custom_growth_stage_group": custom_growth_stage_group
         },
         fields=["name"]
     )
 
     if not config:
-        frappe.throw("No growth stage configuration found for the selected variety type and growth stage group.")
+        frappe.throw("No growth stage configuration found for the selected variety type and custom growth stage group.")
 
     config_name = config[0].name
     config_doc = frappe.get_doc("Variety Growth Stages", config_name)
@@ -293,4 +293,3 @@ def execute(filters=None):
         data.append(summary_row)
 
     return columns, data
-

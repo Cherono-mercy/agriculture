@@ -223,7 +223,7 @@ def execute(filters=None):
     if condition_sql:
         condition_sql = " AND " + condition_sql
 
-    # ✅ Fetch rows
+    # ✅ Fetch rows aggregated at parent level
     data = frappe.db.sql(f"""
         SELECT
             bs.name AS "ID",
@@ -234,18 +234,21 @@ def execute(filters=None):
             bs.total_variety_area AS "Total Variety Area",
             bs.date AS "Sampling Date",
             bs.custom_farm AS "Farm",
-            bsg.bed_no AS "Bed No",
-            bsg.rice_stage AS "Rice Stage",
-            bsg.ball_stage AS "Ball Stage",
-            bsg.colour_break_stage AS "Colour Break Stage",
-            bsg.full_colour_break_stage AS "Full Colour Break Stage"
+            -- ✅ average across child rows
+            AVG(bsg.rice_stage) AS "Rice Stage",
+            AVG(bsg.ball_stage) AS "Ball Stage",
+            AVG(bsg.colour_break_stage) AS "Colour Break Stage",
+            AVG(bsg.full_colour_break_stage) AS "Full Colour Break Stage"
         FROM `tabBed Sampling Form` bs
         LEFT JOIN `tabCrop Cycle` cc
             ON cc.greenhouse = bs.greenhouse AND cc.variety = bs.variety
         LEFT JOIN `tabSampling Table` bsg
             ON bsg.parent = bs.name
         WHERE bs.docstatus = 1 {condition_sql}
-        ORDER BY bs.date DESC, bsg.bed_no ASC
+        GROUP BY bs.name, bs.greenhouse, bs.variety, bs.week_no,
+                 bs.sample_bed_length, cc.bed_width,
+                 bs.total_variety_area, bs.date, bs.custom_farm
+        ORDER BY bs.date DESC
     """, filters, as_dict=1)
 
     columns = [
@@ -257,11 +260,10 @@ def execute(filters=None):
         {"label": "Sampling Area", "fieldname": "Sampling Area", "fieldtype": "Float", "width": 100},
         {"label": "Total Variety Area", "fieldname": "Total Variety Area", "fieldtype": "Float", "width": 120},
         {"label": "Sampling Date", "fieldname": "Sampling Date", "fieldtype": "Date", "width": 100},
-        {"label": "Bed No", "fieldname": "Bed No", "fieldtype": "Data", "width": 80},
-        {"label": "Rice Stage", "fieldname": "Rice Stage", "fieldtype": "Int", "width": 100},
-        {"label": "Ball Stage", "fieldname": "Ball Stage", "fieldtype": "Int", "width": 100},
-        {"label": "Colour Break Stage", "fieldname": "Colour Break Stage", "fieldtype": "Int", "width": 120},
-        {"label": "Full Colour Break Stage", "fieldname": "Full Colour Break Stage", "fieldtype": "Int", "width": 150},
+        {"label": "Rice Stage", "fieldname": "Rice Stage", "fieldtype": "Float", "width": 100},
+        {"label": "Ball Stage", "fieldname": "Ball Stage", "fieldtype": "Float", "width": 100},
+        {"label": "Colour Break Stage", "fieldname": "Colour Break Stage", "fieldtype": "Float", "width": 120},
+        {"label": "Full Colour Break Stage", "fieldname": "Full Colour Break Stage", "fieldtype": "Float", "width": 150},
     ]
 
     # ✅ Add totals/averages row if there’s data
@@ -269,7 +271,6 @@ def execute(filters=None):
         total_sampling_area = sum(d.get("Sampling Area") or 0 for d in data)
         total_variety_area = sum(d.get("Total Variety Area") or 0 for d in data)
 
-        # Average across samples for each stage
         avg_rice_stage = round(sum(d.get("Rice Stage") or 0 for d in data) / len(data), 2)
         avg_ball_stage = round(sum(d.get("Ball Stage") or 0 for d in data) / len(data), 2)
         avg_colour_break_stage = round(sum(d.get("Colour Break Stage") or 0 for d in data) / len(data), 2)
@@ -284,7 +285,6 @@ def execute(filters=None):
             "Sampling Area": total_sampling_area,
             "Total Variety Area": total_variety_area,
             "Sampling Date": "",
-            "Bed No": "",
             "Rice Stage": avg_rice_stage,
             "Ball Stage": avg_ball_stage,
             "Colour Break Stage": avg_colour_break_stage,
@@ -294,3 +294,4 @@ def execute(filters=None):
         data.append(summary_row)
 
     return columns, data
+

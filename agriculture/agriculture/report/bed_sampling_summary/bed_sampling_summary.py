@@ -11,12 +11,13 @@ def generate_forecasting_form(greenhouse, variety, week_no):
     custom_growth_stage_group = item.custom_growth_stage_group
 
     # ✅ Get growth stage configuration from Variety Growth Stages
+    filters = {"variety_type": variety_type}
+    if custom_growth_stage_group:
+        filters["growth_stage_group"] = custom_growth_stage_group
+
     config = frappe.get_all(
         "Variety Growth Stages",
-        filters={
-            "variety_type": variety_type,
-            "growth_stage_group": custom_growth_stage_group
-        },
+        filters=filters,
         fields=["name"]
     )
 

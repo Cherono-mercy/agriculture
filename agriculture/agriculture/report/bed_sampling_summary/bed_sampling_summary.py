@@ -15,7 +15,7 @@ def generate_forecasting_form(greenhouse, variety, week_no):
         "Variety Growth Stages",
         filters={
             "variety_type": variety_type,
-            "custom_growth_stage_group": custom_growth_stage_group
+            "growth_stage_group": custom_growth_stage_group
         },
         fields=["name"]
     )

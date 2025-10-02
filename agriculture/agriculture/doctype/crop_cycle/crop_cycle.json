@@ -1,0 +1,192 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "format:{greenhouse}-{variety}-{#####}",
+ "creation": "2025-06-26 13:29:01.785593",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "greenhouse",
+  "farm",
+  "start_bed",
+  "area",
+  "bed_width",
+  "bed_length",
+  "total_beds_area",
+  "column_break_oliw",
+  "variety",
+  "end_bed",
+  "variety_yield",
+  "naming",
+  "section_break_jawo",
+  "planting_date",
+  "cycle_end_date",
+  "column_break_vdhq",
+  "expected_production_date",
+  "section_break_ebvo",
+  "bed_numbers"
+ ],
+ "fields": [
+  {
+   "fieldname": "greenhouse",
+   "fieldtype": "Link",
+   "label": "Greenhouse",
+   "options": "Warehouse",
+   "reqd": 1
+  },
+  {
+   "fieldname": "start_bed",
+   "fieldtype": "Int",
+   "label": "Start Bed",
+   "reqd": 1
+  },
+  {
+   "fieldname": "area",
+   "fieldtype": "Float",
+   "label": "Area",
+   "reqd": 1
+  },
+  {
+   "fieldname": "bed_width",
+   "fieldtype": "Float",
+   "label": "Bed width(m)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_oliw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "variety",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Variety",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "end_bed",
+   "fieldtype": "Int",
+   "label": "End Bed",
+   "reqd": 1
+  },
+  {
+   "fieldname": "variety_yield",
+   "fieldtype": "Int",
+   "label": "Variety Yield"
+  },
+  {
+   "fieldname": "naming",
+   "fieldtype": "Data",
+   "label": "Naming ",
+   "read_only": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "section_break_jawo",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "planting_date",
+   "fieldtype": "Date",
+   "label": "Planting Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cycle_end_date",
+   "fieldtype": "Date",
+   "label": "Cycle End Date"
+  },
+  {
+   "fieldname": "column_break_vdhq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "expected_production_date",
+   "fieldtype": "Date",
+   "label": "Expected Production Date"
+  },
+  {
+   "fieldname": "total_beds_area",
+   "fieldtype": "Float",
+   "label": "Total Beds Area"
+  },
+  {
+   "fieldname": "bed_numbers",
+   "fieldtype": "Table",
+   "label": "Bed Numbers",
+   "options": "Bed Number"
+  },
+  {
+   "fieldname": "section_break_ebvo",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "bed_length",
+   "fieldtype": "Data",
+   "label": "Bed Length"
+  },
+  {
+   "fetch_from": "greenhouse.custom_farm",
+   "fieldname": "farm",
+   "fieldtype": "Link",
+   "label": "Farm",
+   "options": "Farm",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-09-17 20:14:17.110768",
+ "modified_by": "Administrator",
+ "module": "Agriculture",
+ "name": "Crop Cycle",
+ "naming_rule": "Expression",
+ "owner": "mercy@upande.com",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Agriculture User",
+   "select": 1,
+   "share": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Agriculture Manager",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

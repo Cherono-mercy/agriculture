@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"EjXBml3EEb\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Reports &amp; Masters</span>\",\"col\":12}},{\"id\":\"tpDzmT-nIc\",\"type\":\"card\",\"data\":{\"card_name\":\"Crops & Farms\",\"col\":4}},{\"id\":\"moiC_thD3h\",\"type\":\"card\",\"data\":{\"card_name\":\"Plans & Forms\",\"col\":4}}]",
+ "content": "[{\"id\":\"EjXBml3EEb\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Reports &amp; Masters</span>\",\"col\":12}},{\"id\":\"tpDzmT-nIc\",\"type\":\"card\",\"data\":{\"card_name\":\"Crops & Farms\",\"col\":4}},{\"id\":\"moiC_thD3h\",\"type\":\"card\",\"data\":{\"card_name\":\"Plans & Forms\",\"col\":4}},{\"id\":\"DOX6GtBPH9\",\"type\":\"card\",\"data\":{\"card_name\":\"Forecasting tools & Reports\",\"col\":4}}]",
  "creation": "2020-03-02 17:23:34.339274",
  "custom_blocks": [],
  "docstatus": 0,
@@ -157,7 +157,7 @@
    "is_query_report": 0,
    "label": "Weekly Production Tracking Form",
    "link_count": 0,
-   "link_to": "Production Plan Form",
+   "link_to": "Production Tracking Form",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
@@ -186,10 +186,32 @@
    "hidden": 0,
    "is_query_report": 0,
    "label": "Crops & Farms",
-   "link_count": 6,
+   "link_count": 5,
    "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Crop",
+   "link_count": 0,
+   "link_to": "Item",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Crop Cycle",
+   "link_count": 0,
+   "link_to": "Crop Cycle",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
   },
   {
    "dependencies": "",
@@ -213,28 +235,6 @@
    "type": "Link"
   },
   {
-   "dependencies": "",
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Crop Varieties",
-   "link_count": 0,
-   "link_to": "Item",
-   "link_type": "DocType",
-   "onboard": 1,
-   "type": "Link"
-  },
-  {
-   "dependencies": "",
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Crop Cycle",
-   "link_count": 0,
-   "link_to": "Crop Cycle",
-   "link_type": "DocType",
-   "onboard": 1,
-   "type": "Link"
-  },
-  {
    "hidden": 0,
    "is_query_report": 0,
    "label": "Agriculture Tasks",
@@ -247,15 +247,54 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Variety Growth Stages",
+   "label": "Forecasting tools & Reports",
+   "link_count": 4,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Monthly Production Projection",
    "link_count": 0,
-   "link_to": "Variety Growth Stages",
+   "link_to": "Production Projection report",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Weekly Production Projection",
+   "link_count": 0,
+   "link_to": "Production Projection report with Iso weeks",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Revised Projections",
+   "link_count": 0,
+   "link_to": "Revised forecast vs projected forecast report",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Production Projection form",
+   "link_count": 0,
+   "link_to": "Production Projection",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
   }
  ],
- "modified": "2025-08-07 10:16:26.825793",
+ "modified": "2025-09-26 12:09:11.648708",
  "modified_by": "Administrator",
  "module": "Agriculture",
  "name": "Agriculture",
@@ -265,8 +304,24 @@
  "public": 1,
  "quick_lists": [],
  "restrict_to_domain": "Agriculture",
- "roles": [],
- "sequence_id": 12.0,
+ "roles": [
+  {
+   "role": "Agriculture Manager"
+  },
+  {
+   "role": "Agriculture User"
+  },
+  {
+   "role": "Production Manager"
+  },
+  {
+   "role": "Production Section Head"
+  },
+  {
+   "role": "Production Supervisor"
+  }
+ ],
+ "sequence_id": 15.0,
  "shortcuts": [],
  "title": "Agriculture"
 }

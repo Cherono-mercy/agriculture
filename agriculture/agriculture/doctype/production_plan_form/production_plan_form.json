@@ -7,15 +7,13 @@
  "engine": "InnoDB",
  "field_order": [
   "greenhouse",
-  "week_no",
-  "naming_series",
-  "column_break_eths",
   "supervisor",
+  "week_no",
   "production_plan_type",
+  "naming_series",
   "status",
-  "tasks_section",
-  "daily_tasks",
-  "amended_from"
+  "amended_from",
+  "daily_tasks"
  ],
  "fields": [
   {
@@ -41,11 +39,6 @@
    "label": "Week No. "
   },
   {
-   "fieldname": "tasks_section",
-   "fieldtype": "Section Break",
-   "label": "Tasks"
-  },
-  {
    "fieldname": "naming_series",
    "fieldtype": "Select",
    "hidden": 1,
@@ -56,12 +49,8 @@
    "fieldname": "production_plan_type",
    "fieldtype": "Select",
    "label": "Production Plan Type",
-   "options": "Irrigation\nCrop Protection\nGreenhouse Operations",
+   "options": "\nIrrigation\nCrop Protection\nGreenhouse Operations",
    "reqd": 1
-  },
-  {
-   "fieldname": "column_break_eths",
-   "fieldtype": "Column Break"
   },
   {
    "fieldname": "amended_from",
@@ -91,7 +80,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-07-31 16:51:10.375956",
+ "modified": "2025-09-16 16:54:45.334138",
  "modified_by": "Administrator",
  "module": "Agriculture",
  "name": "Production Plan Form",

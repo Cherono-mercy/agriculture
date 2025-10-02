@@ -10,14 +10,19 @@
   "rice_stage",
   "ball_stage",
   "colour_break_stage",
-  "full_colour_break_stage"
+  "full_colour_break_stage",
+  "variety",
+  "bed_width",
+  "bed_length",
+  "variety_type"
  ],
  "fields": [
   {
    "fieldname": "bed_no",
-   "fieldtype": "Int",
+   "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Bed No."
+   "label": "Bed No.",
+   "options": "Bed"
   },
   {
    "fieldname": "rice_stage",
@@ -40,13 +45,40 @@
    "fieldname": "full_colour_break_stage",
    "fieldtype": "Int",
    "label": "Full Colour Break stage"
+  },
+  {
+   "fetch_from": "bed_no.variety",
+   "fieldname": "variety",
+   "fieldtype": "Link",
+   "label": "Crop Variety",
+   "options": "Item"
+  },
+  {
+   "fetch_from": "bed_no.bed_width",
+   "fieldname": "bed_width",
+   "fieldtype": "Float",
+   "label": "Bed Width"
+  },
+  {
+   "default": "4.0",
+   "fieldname": "bed_length",
+   "fieldtype": "Float",
+   "label": "Bed length"
+  },
+  {
+   "fetch_from": "variety.item_group",
+   "fieldname": "variety_type",
+   "fieldtype": "Link",
+   "label": "Variety Type",
+   "options": "Item Group",
+   "read_only": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-08-18 20:08:43.106477",
+ "modified": "2025-10-01 15:26:10.162271",
  "modified_by": "Administrator",
  "module": "Agriculture",
  "name": "Sampling Table",

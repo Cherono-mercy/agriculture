@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "naming_series:Bed-SAMPL-.YYYY.-",
+ "autoname": "format:{greenhouse}-{variety}-{week_no}",
  "creation": "2025-06-25 11:55:23.217078",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -9,16 +9,20 @@
   "sampling_details_section",
   "greenhouse",
   "date",
-  "sample_bed_length",
   "status",
-  "column_break_qetk",
   "bed_no",
+  "sample_bed_length",
+  "column_break_qetk",
   "week_no",
-  "total_variety_area",
+  "total_sampled_area",
+  "area_covered_by_variety",
+  "expected_variety_yield",
+  "forecast_yield",
   "column_break_ozud",
   "variety",
   "naming_series",
   "sampling_area",
+  "variety_type",
   "sampling_table_section",
   "growth_stages",
   "amended_from"
@@ -42,16 +46,10 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "bed_no",
-   "fieldtype": "Int",
-   "in_list_view": 1,
-   "label": "Bed No.",
-   "reqd": 1
-  },
-  {
    "fieldname": "date",
    "fieldtype": "Date",
    "label": "Sampling Date",
+   "options": "Today",
    "reqd": 1
   },
   {
@@ -88,11 +86,7 @@
    "options": "Bed-SAMPL-.YYYY.-"
   },
   {
-   "fieldname": "total_variety_area",
-   "fieldtype": "Float",
-   "label": "Total Variety Area"
-  },
-  {
+   "fetch_from": "bed_no.variety",
    "fieldname": "variety",
    "fieldtype": "Link",
    "label": "Crop Variety",
@@ -118,17 +112,52 @@
    "fieldtype": "Select",
    "label": "Status",
    "options": "Draft\nPending Approval\nApproved"
+  },
+  {
+   "fieldname": "total_sampled_area",
+   "fieldtype": "Data",
+   "label": "Total Sampled Area"
+  },
+  {
+   "fetch_from": "bed_no.total_variety_area",
+   "fieldname": "area_covered_by_variety",
+   "fieldtype": "Data",
+   "label": "Area covered by variety"
+  },
+  {
+   "fieldname": "forecast_yield",
+   "fieldtype": "Float",
+   "label": "Forecast Yield"
+  },
+  {
+   "fieldname": "expected_variety_yield",
+   "fieldtype": "Data",
+   "label": "Expected Harvest"
+  },
+  {
+   "fieldname": "bed_no",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Bed No",
+   "options": "Bed"
+  },
+  {
+   "fetch_from": "variety.item_group",
+   "fieldname": "variety_type",
+   "fieldtype": "Link",
+   "label": "Variety type",
+   "options": "Item Group"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-08-18 20:10:50.001887",
+ "modified": "2025-10-01 15:59:31.242097",
  "modified_by": "Administrator",
  "module": "Agriculture",
  "name": "Bed Sampling Form",
- "naming_rule": "By \"Naming Series\" field",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
@@ -140,7 +169,22 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "select": 1,
    "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Agriculture User",
+   "select": 1,
+   "share": 1,
+   "submit": 1,
    "write": 1
   }
  ],

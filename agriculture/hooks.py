@@ -209,4 +209,43 @@ global_search_doctypes = {
 domains = {
 	'Agriculture': 'agriculture.agriculture.agriculture',
 }
+fixtures = [
+    {
+        "dt": "Client Script",
+        "filters": [
+            [
+                "name",
+                "in",
+                [
+                    # --- Client Scripts ---
+                    "Bed Sampling filters",
+                    "Bed Area",
+                    "Dynainamic fields on Animal event",
+                    "Test on dynamic pregnancy",
+                    "Control on Animal events",
+                    "Production Projection",
+                    "Greenhouses filters-ppf",
+                    "Greenhouses filters",
+                    "Add Variety button",
+                ],
+            ]
+        ],
+    },
+    {
+        "dt": "Server Script",
+        "filters": [
+            [
+                "name",
+                "in",
+                [
+                    # --- Server Scripts ---
+                    "Test bed sampling calc",
+                    "Bed Sampling Expected Harvest Calculator",
+                    "Bed Autocreation",
+                    "Actual Harvest Projection",
+                ],
+            ]
+        ],
+    },
+]
 

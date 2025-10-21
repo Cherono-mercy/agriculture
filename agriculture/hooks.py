@@ -245,6 +245,7 @@ fixtures = [
                     "Bed Sampling Expected Harvest Calculator",
                     "Bed Autocreation",
                     "Actual Harvest Projection",
+                    "Test on PP",
                 ],
             ]
         ],

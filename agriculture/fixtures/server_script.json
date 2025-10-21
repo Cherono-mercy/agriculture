@@ -19,6 +19,25 @@
   "script_type": "API"
  },
  {
+  "allow_guest": 1,
+  "api_method": "production_projection",
+  "cron_format": null,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Server Script",
+  "doctype_event": "Before Insert",
+  "enable_rate_limit": 0,
+  "event_frequency": "All",
+  "modified": "2025-10-07 00:27:57.598780",
+  "module": "Agriculture",
+  "name": "Test on PP",
+  "rate_limit_count": 5,
+  "rate_limit_seconds": 86400,
+  "reference_doctype": "Stock Ledger Entry",
+  "script": "# --- Get parameters from the API call (sent by frappe.call on the client) ---\ngreenhouse   = frappe.form_dict.greenhouse\ncrop_variety = frappe.form_dict.crop_variety\niso_year     = frappe.form_dict.year\nweek_no      = frappe.form_dict.week_no\n\n# If year or week were not provided, default to \"last week\"\nif not iso_year or not week_no:\n    today = frappe.utils.now_datetime().date()\n    iso   = today.isocalendar()       # (year, week, weekday)\n    iso_year = iso[0] if not iso_year else iso_year\n    week_no  = iso[1] - 1 if not week_no else week_no\n\n# ---- Run the query for the specified greenhouse/variety/year/week ----\nqty = frappe.db.sql(\"\"\"\n    SELECT IFNULL(SUM(sed.qty), 0)\n    FROM `tabStock Entry` se\n    JOIN `tabStock Entry Detail` sed ON sed.parent = se.name\n    WHERE se.stock_entry_type = 'Harvesting'\n      AND se.docstatus = 1\n      AND se.custom_greenhouse = %s\n      AND sed.item_name       = %s\n      AND WEEK(se.posting_date, 1) = %s\n      AND YEAR(se.posting_date)    = %s\n\"\"\", (greenhouse, crop_variety, week_no, iso_year))[0][0]\n\n# Return the result to the caller\nfrappe.response[\"message\"] = qty\n",
+  "script_type": "API"
+ },
+ {
   "allow_guest": 0,
   "api_method": null,
   "cron_format": null,

@@ -227,6 +227,8 @@ fixtures = [
                     "Greenhouses filters-ppf",
                     "Greenhouses filters",
                     "Add Variety button",
+                    "Dynamically Populate Plan Type Child Table",
+                    "Planting date autopopulation from crop cycle",
                 ],
             ]
         ],

@@ -8,16 +8,17 @@
  "field_order": [
   "section_break_inaq",
   "amended_from",
+  "greenhouse",
   "year",
   "crop_variety",
   "crop_type",
   "company",
   "farm",
-  "greenhouse",
   "date_of_planting",
   "colour",
   "projection_week",
-  "area"
+  "area",
+  "crop_cycle"
  ],
  "fields": [
   {
@@ -39,13 +40,15 @@
    "fieldname": "year",
    "fieldtype": "Data",
    "label": "Year",
-   "placeholder": "E"
+   "placeholder": "Enter the year"
   },
   {
+   "fetch_from": "greenhouse.company",
    "fieldname": "company",
    "fieldtype": "Link",
    "label": "Company",
-   "options": "Company"
+   "options": "Company",
+   "read_only": 1
   },
   {
    "fieldname": "farm",
@@ -60,6 +63,7 @@
    "options": "Warehouse"
   },
   {
+   "fetch_from": "crop_cycle.planting_date",
    "fieldname": "date_of_planting",
    "fieldtype": "Date",
    "label": "Date of Planting"
@@ -76,13 +80,16 @@
    "options": "Projection Week"
   },
   {
+   "fetch_from": "crop_variety.item_group",
    "fieldname": "crop_type",
    "fieldtype": "Link",
    "label": "Crop Type",
    "link_filters": "[]",
-   "options": "Item Group"
+   "options": "Item Group",
+   "read_only": 1
   },
   {
+   "fetch_from": "crop_cycle.total_beds_area",
    "fieldname": "area",
    "fieldtype": "Float",
    "label": "Area"
@@ -93,14 +100,20 @@
    "label": "Crop Variety",
    "link_filters": "[]",
    "options": "Item"
+  },
+  {
+   "fieldname": "crop_cycle",
+   "fieldtype": "Link",
+   "label": "Crop cycle",
+   "options": "Crop Cycle"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-10-04 16:10:52.364457",
- "modified_by": "Administrator",
+ "modified": "2025-10-14 15:28:10.167242",
+ "modified_by": "james@upande.com",
  "module": "Agriculture",
  "name": "Production Projection",
  "naming_rule": "Expression",

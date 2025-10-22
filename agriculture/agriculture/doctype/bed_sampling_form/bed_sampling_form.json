@@ -39,7 +39,8 @@
   {
    "fieldname": "week_no",
    "fieldtype": "Int",
-   "label": "Week No."
+   "label": "Week No.",
+   "read_only": 1
   },
   {
    "fieldname": "column_break_ozud",
@@ -105,7 +106,8 @@
   {
    "fieldname": "sampling_area",
    "fieldtype": "Float",
-   "label": "Sampling Area"
+   "label": "Sampling Area",
+   "read_only": 1
   },
   {
    "fieldname": "status",
@@ -116,23 +118,28 @@
   {
    "fieldname": "total_sampled_area",
    "fieldtype": "Data",
-   "label": "Total Sampled Area"
+   "label": "Total Sampled Area",
+   "read_only": 1
   },
   {
    "fetch_from": "bed_no.total_variety_area",
    "fieldname": "area_covered_by_variety",
    "fieldtype": "Data",
-   "label": "Area covered by variety"
+   "label": "Area covered by variety",
+   "read_only": 1
   },
   {
    "fieldname": "forecast_yield",
    "fieldtype": "Float",
-   "label": "Forecast Yield"
+   "label": "Forecast Yield",
+   "read_only": 1
   },
   {
    "fieldname": "expected_variety_yield",
    "fieldtype": "Data",
-   "label": "Expected Harvest"
+   "hidden": 1,
+   "label": "Expected Harvest",
+   "read_only": 1
   },
   {
    "fieldname": "bed_no",
@@ -146,15 +153,16 @@
    "fieldname": "variety_type",
    "fieldtype": "Link",
    "label": "Variety type",
-   "options": "Item Group"
+   "options": "Item Group",
+   "read_only": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-10-04 16:09:57.410331",
- "modified_by": "Administrator",
+ "modified": "2025-10-21 15:03:47.514349",
+ "modified_by": "james@upande.com",
  "module": "Agriculture",
  "name": "Bed Sampling Form",
  "naming_rule": "Expression",
@@ -189,6 +197,7 @@
   }
  ],
  "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []

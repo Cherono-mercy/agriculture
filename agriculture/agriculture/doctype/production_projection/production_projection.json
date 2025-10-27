@@ -8,14 +8,21 @@
  "field_order": [
   "section_break_inaq",
   "amended_from",
+  "farm",
+  "company",
   "greenhouse",
   "year",
+  "column_break_itpq",
   "crop_variety",
   "crop_type",
-  "company",
-  "farm",
   "date_of_planting",
   "colour",
+  "section_break_vxb9",
+  "from_week",
+  "generate_weeks",
+  "column_break_siso",
+  "to_week",
+  "section_break_tag4",
   "projection_week",
   "area",
   "crop_cycle"
@@ -106,14 +113,49 @@
    "fieldtype": "Link",
    "label": "Crop cycle",
    "options": "Crop Cycle"
+  },
+  {
+   "fieldname": "column_break_itpq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_vxb9",
+   "fieldtype": "Section Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "from_week",
+   "fieldtype": "Int",
+   "label": "From Week"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "to_week",
+   "fieldtype": "Int",
+   "label": "To Week"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "generate_weeks",
+   "fieldtype": "Check",
+   "label": "Generate Weeks"
+  },
+  {
+   "fieldname": "column_break_siso",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_tag4",
+   "fieldtype": "Section Break"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-10-14 15:28:10.167242",
- "modified_by": "james@upande.com",
+ "modified": "2025-10-27 22:55:47.573808",
+ "modified_by": "Administrator",
  "module": "Agriculture",
  "name": "Production Projection",
  "naming_rule": "Expression",
@@ -128,6 +170,35 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "select": 1,
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Agriculture User",
+   "select": 1,
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Agriculture Manager",
+   "select": 1,
    "share": 1,
    "submit": 1,
    "write": 1

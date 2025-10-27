@@ -25,7 +25,14 @@
   "variety_type",
   "sampling_table_section",
   "growth_stages",
-  "amended_from"
+  "amended_from",
+  "forecasting_predictions_section",
+  "colour_break_forecast",
+  "colour_break_harvest_week",
+  "ball_stage_forecast",
+  "ball_stage_harvest_week",
+  "rice_stage_forecast",
+  "rice_stage_harvest_week"
  ],
  "fields": [
   {
@@ -155,14 +162,55 @@
    "label": "Variety type",
    "options": "Item Group",
    "read_only": 1
+  },
+  {
+   "fieldname": "colour_break_forecast",
+   "fieldtype": "Float",
+   "label": "Colour Break Forecast",
+   "read_only": 1
+  },
+  {
+   "fieldname": "colour_break_harvest_week",
+   "fieldtype": "Int",
+   "label": "Colour Break Harvest Week",
+   "read_only": 1
+  },
+  {
+   "fieldname": "ball_stage_forecast",
+   "fieldtype": "Float",
+   "label": "Ball Stage Forecast",
+   "read_only": 1
+  },
+  {
+   "fieldname": "ball_stage_harvest_week",
+   "fieldtype": "Int",
+   "label": "Ball Stage Harvest Week",
+   "read_only": 1
+  },
+  {
+   "fieldname": "rice_stage_forecast",
+   "fieldtype": "Float",
+   "label": "Rice Stage Forecast",
+   "read_only": 1
+  },
+  {
+   "fieldname": "rice_stage_harvest_week",
+   "fieldtype": "Int",
+   "label": "Rice Stage Harvest Week",
+   "read_only": 1
+  },
+  {
+   "fieldname": "forecasting_predictions_section",
+   "fieldtype": "Section Break",
+   "label": "Forecasting predictions"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-10-21 15:03:47.514349",
- "modified_by": "james@upande.com",
+ "modified": "2025-10-27 22:55:32.977140",
+ "modified_by": "Administrator",
  "module": "Agriculture",
  "name": "Bed Sampling Form",
  "naming_rule": "Expression",

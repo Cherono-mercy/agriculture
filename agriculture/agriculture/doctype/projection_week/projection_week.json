@@ -15,7 +15,7 @@
  "fields": [
   {
    "fieldname": "week_no",
-   "fieldtype": "Data",
+   "fieldtype": "Int",
    "in_list_view": 1,
    "label": "Week No",
    "width": "1"
@@ -24,7 +24,7 @@
    "fieldname": "projected_qty",
    "fieldtype": "Float",
    "in_list_view": 1,
-   "label": "Projected Qty",
+   "label": "Budget",
    "width": "1"
   },
   {
@@ -52,7 +52,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-10-04 16:11:17.997566",
+ "modified": "2025-10-27 22:56:02.813698",
  "modified_by": "Administrator",
  "module": "Agriculture",
  "name": "Projection Week",

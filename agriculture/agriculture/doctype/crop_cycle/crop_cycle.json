@@ -7,45 +7,50 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "general_information_section",
   "greenhouse",
   "farm",
-  "start_bed",
-  "area",
-  "bed_width",
-  "bed_length",
-  "total_beds_area",
-  "column_break_oliw",
   "variety",
-  "end_bed",
   "variety_yield",
-  "naming",
-  "section_break_jawo",
+  "column_break_ttec",
   "planting_date",
   "cycle_end_date",
-  "column_break_vdhq",
   "expected_production_date",
+  "section_break_arzr",
+  "start_bed",
+  "bed_width",
+  "column_break_dclz",
+  "end_bed",
+  "bed_length",
+  "section_break_ilkc",
+  "bed_range",
+  "total_beds_area",
+  "naming",
   "section_break_ebvo",
-  "bed_numbers"
+  "bed_numbers",
+  "bay_arrangement",
+  "area_overview",
+  "area"
  ],
  "fields": [
   {
    "fieldname": "greenhouse",
    "fieldtype": "Link",
    "label": "Greenhouse",
+   "link_filters": "[[\"Warehouse\",\"warehouse_type\",\"=\",\"Greenhouse\"]]",
    "options": "Warehouse",
    "reqd": 1
   },
   {
    "fieldname": "start_bed",
    "fieldtype": "Int",
-   "label": "Start Bed",
-   "reqd": 1
+   "hidden": 1,
+   "label": "Start Bed"
   },
   {
    "fieldname": "area",
    "fieldtype": "Float",
-   "label": "Area",
-   "reqd": 1
+   "label": "Area"
   },
   {
    "fieldname": "bed_width",
@@ -54,26 +59,23 @@
    "reqd": 1
   },
   {
-   "fieldname": "column_break_oliw",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "variety",
    "fieldtype": "Link",
+   "hidden": 1,
    "in_list_view": 1,
    "label": "Variety",
-   "options": "Item",
-   "reqd": 1
+   "options": "Item"
   },
   {
    "fieldname": "end_bed",
    "fieldtype": "Int",
-   "label": "End Bed",
-   "reqd": 1
+   "hidden": 1,
+   "label": "End Bed"
   },
   {
    "fieldname": "variety_yield",
    "fieldtype": "Int",
+   "hidden": 1,
    "label": "Variety Yield"
   },
   {
@@ -84,23 +86,15 @@
    "unique": 1
   },
   {
-   "fieldname": "section_break_jawo",
-   "fieldtype": "Section Break"
-  },
-  {
    "fieldname": "planting_date",
    "fieldtype": "Date",
-   "label": "Planting Date",
-   "reqd": 1
+   "hidden": 1,
+   "label": "Planting Date"
   },
   {
    "fieldname": "cycle_end_date",
    "fieldtype": "Date",
    "label": "Cycle End Date"
-  },
-  {
-   "fieldname": "column_break_vdhq",
-   "fieldtype": "Column Break"
   },
   {
    "fieldname": "expected_production_date",
@@ -120,7 +114,8 @@
   },
   {
    "fieldname": "section_break_ebvo",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "label": "Bed Numbers"
   },
   {
    "fieldname": "bed_length",
@@ -134,12 +129,54 @@
    "label": "Farm",
    "options": "Farm",
    "read_only": 1
+  },
+  {
+   "fieldname": "bed_range",
+   "fieldtype": "Table",
+   "label": "Bed range",
+   "options": "Bed Range",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_ttec",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_arzr",
+   "fieldtype": "Section Break",
+   "label": "Bed Information"
+  },
+  {
+   "fieldname": "column_break_dclz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_ilkc",
+   "fieldtype": "Section Break",
+   "label": "Bed set up"
+  },
+  {
+   "fieldname": "area_overview",
+   "fieldtype": "Table",
+   "label": "Area Overview",
+   "options": "Beds area"
+  },
+  {
+   "fieldname": "bay_arrangement",
+   "fieldtype": "Table",
+   "label": "Bay Arrangement",
+   "options": "Bay"
+  },
+  {
+   "fieldname": "general_information_section",
+   "fieldtype": "Section Break",
+   "label": "General information"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-09-17 20:14:17.110768",
+ "modified": "2025-12-02 21:56:03.876691",
  "modified_by": "Administrator",
  "module": "Agriculture",
  "name": "Crop Cycle",
@@ -186,6 +223,7 @@
   }
  ],
  "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []
